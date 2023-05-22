@@ -151,6 +151,7 @@ public class MainController {
 
     @GetMapping("/list/{login}")
     public String user(@PathVariable String login, Model model, HttpServletRequest request) {
+        if(login.equals("")) return "redirect:/main";
         model.addAttribute("user", userHelper.getUser(login));
         if (login.equals(getLogin(request))) {
             return "user";
