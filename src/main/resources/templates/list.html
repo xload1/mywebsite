@@ -1,10 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Website by Marat Tsasiuk</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        table, th, td {
+            margin: 25px 25%;
+            width: 10%;
+            box-shadow: 1px 1px 1px black;
+            border-collapse: collapse;
+            padding: 5px;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap; /* Don't forget this one */
+            text-overflow: ellipsis;
+            border-radius: 3px;
+            border: 1px solid #e3e3e3;
+        }
+
+        input {
+            margin: 0;
+            border-radius: 0;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 0 0 0 white;
+        }
+
+        form {
+            box-shadow: 0 0 0 white;
+        }
+
+        .no-change {
+            text-decoration: none;
+            text-align: center;
+            padding: 5px;
+            margin: 0;
+            border: 0;
+            box-shadow: 0 0 0 white;
+            background-image: none;
+        }
+        table {
+            table-layout: fixed;
+            width: 50%;
+            border: 1px solid #e3e3e3;
+            background-image: url('background.jpg');
+        }
+
+    </style>
 </head>
 <body>
-$END$
+<div class="menu">
+    <a href="/main">main page</a>
+    <a href="/list">user list</a>
+    <a href="/login" class="log-reg">log in</a>
+    <a href="/register" class="log-reg">register</a>
+    <a th:href="'/list/'+${login}" class="log-reg" th:text="${login}" style="box-shadow: 0 0 0 white;"/>
+</div>
+<table>
+    <tr>
+        <th>username</th>
+        <th>user text</th>
+        <th>amount of likes</th>
+        <th>liked user</th>
+        <th>like</th>
+    </tr>
+    <tr th:each="user : ${users}" th:class="${user.getLogin().equals(likedUserLogin) ? 'red-button' : ''}">
+        <td><a th:href="'list/'+${user.getLogin()}" th:text="${user.getLogin()}" class="no-change"></a></td>
+        <td th:text="${user.getText}"></td>
+        <td th:text="${user.getLikes}"></td>
+        <td th:text="${user.getLiked}"></td>
+        <td>
+            <form method="post" action="list/like">
+                <input type="submit" value="like">
+                <input type="hidden" name="login" th:value="${user.getLogin}">
+            </form>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

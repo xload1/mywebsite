@@ -2,13 +2,28 @@ package com.xload.mywebsite.dbconn;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class website {
+@Table(name = "website")
+public class User {
     @Id
-    String login;
-    String password;
-    String text;
-    int likes;
-    String liked;
+    private String login;
+    private String password;
+    private String text;
+    private int likes;
+    private String liked;
+
+    public User(String username, String password) {
+        this.login = username;
+        this.password = password;
+    }
 }

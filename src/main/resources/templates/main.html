@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Website by Marat Tsasiuk</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-$END$
+<div class="menu">
+    <a href="/main">main page</a>
+    <a href="/list">user list</a>
+    <a href="/login" class="log-reg">log in</a>
+    <a href="/register" class="log-reg">register</a>
+    <a th:href="'/list/'+${login}" class="log-reg" th:text="${login}" style="box-shadow: 0 0 0 white;"/>
+</div>
+<div class="text">
+<h1>The Power of Collaboration: Unleashing Creative Synergy</h1>
+<span>In a world driven by innovation and rapid technological advancements, collaboration has emerged as a pivotal force that propels organizations and individuals toward success. Gone are the days of solitary endeavors and isolated thinking. Today, the power of collaboration is recognized as a transformative catalyst, capable of unlocking boundless creativity and achieving remarkable outcomes.
+
+Collaboration transcends boundaries, whether they be geographical, disciplinary, or cultural. By bringing together diverse perspectives and skill sets, collaboration fosters an environment where ideas flourish and grow. When individuals from different backgrounds collaborate, they pool their collective knowledge and experiences, giving rise to unique solutions and groundbreaking breakthroughs.
+
+One of the key advantages of collaboration is the ability to leverage complementary strengths. Each team member brings their own set of expertise, enabling the group to tackle multifaceted challenges with greater agility and depth. When individuals work together, they can draw upon a wealth of resources, skills, and perspectives, leading to more comprehensive problem-solving and innovative thinking.
+
+Moreover, collaboration cultivates a sense of shared ownership and accountability. As team members collaborate, they forge connections and build trust, forming a cohesive unit that is dedicated to achieving a common goal. This shared commitment fosters a supportive and motivating environment, where everyone feels valued and empowered to contribute their best. Collaboration nurtures a sense of camaraderie, fostering creativity and resilience in the face of adversity.
+
+In today's interconnected world, technology plays a pivotal role in facilitating collaboration. Online platforms, video conferencing tools, and project management software have revolutionized the way teams collaborate, enabling seamless communication and efficient coordination across borders and time zones. These technological advancements have made it easier than ever for individuals to connect, collaborate, and bring their ideas to life.
+
+In conclusion, collaboration stands as a driving force behind innovation and progress. It is the embodiment of the adage "two heads are better than one." By harnessing the power of collaboration, organizations and individuals can tap into an immense reservoir of creativity and achieve extraordinary outcomes. As we embrace collaboration in all its forms, we unlock the potential to shape a brighter future where collective genius thrives and boundaries are transcended.</span>
+</div>
 </body>
 </html>
